@@ -1,0 +1,17 @@
+{
+  "name": "med-2c2p",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "roylee0704 <roylee0704@gmail.com> (https://twitter.com/roylee0704)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "jsonwebtoken": "^8.5.1",
+    "node-2c2p": "0.0.3"
+  }
+}
