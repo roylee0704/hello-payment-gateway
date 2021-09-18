@@ -13,9 +13,15 @@ export async function getCheckoutPaymentUrl(checkoutPayload) {
 
     try {
         const requestToken = jwt.sign(checkoutPayload, PAYMENT_GATEWAY_2C2P_API_SECRET)
+        console.debug('requestToken:', requestToken);
+
         const responseToken = await getPaymentToken(requestToken);
-        const { webPaymentUrl } = jwt.decode(responseToken, PAYMENT_GATEWAY_2C2P_API_SECRET);
-        return webPaymentUrl;
+        console.debug('responseToken:', requestToken);
+
+        const response = jwt.decode(responseToken, PAYMENT_GATEWAY_2C2P_API_SECRET);
+        console.debug('response:', response);
+
+        return response.webPaymentUrl;
     } catch (err) {
         throw new Error('getCheckoutPaymentUrl: ' + err)
     }
