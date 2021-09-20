@@ -2,7 +2,7 @@ import { getCheckoutPaymentUrl } from './2c2p-sdk.js';
 
 async function run() {
     const checkoutPayload = {
-        "invoiceNo": "PSUV-dBPMQWYFFLtoBZU6HBAcy3",       // booking.reserve_number
+        "invoiceNo": "PSUV-dBPMQWYFFLtoBZU6HBAcy5",       // booking.reserve_number
         "description": "Sinopharm + Moderna",         // booking.order_vaccine_product_name
         "amount": 10500,               // booking.order_total_price
         "currencyCode": "THB",
@@ -10,6 +10,7 @@ async function run() {
         "userDefined1": "446",           // booking.id
         "userDefined2": "2",            // booking.order_vaccine_product_id
         "userDefined3": "PSUV",         // booking.preferred_hospital
+        "paymentChannel": ["IMBANK", "WEBPAY"]
     }
 
     try {
