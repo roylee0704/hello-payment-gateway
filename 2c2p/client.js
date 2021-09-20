@@ -2,7 +2,7 @@ import { getCheckoutPaymentUrl } from './2c2p-sdk.js';
 
 async function run() {
     const checkoutPayload = {
-        "invoiceNo": "PSUV-dBPMQWYFFLtoBZU6HBAcyD",       // booking.reserve_number
+        "invoiceNo": "PSUV-dBPMQWYFFLtoBZU6HBAcy3",       // booking.reserve_number
         "description": "Sinopharm + Moderna",         // booking.order_vaccine_product_name
         "amount": 10500,               // booking.order_total_price
         "currencyCode": "THB",

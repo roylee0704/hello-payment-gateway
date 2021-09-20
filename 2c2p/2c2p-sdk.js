@@ -7,9 +7,11 @@ dotenv.config();
 const PAYMENT_GATEWAY_2C2P_API_URL = process.env.PAYMENT_GATEWAY_2C2P_API_URL;
 const PAYMENT_GATEWAY_2C2P_API_SECRET = process.env.PAYMENT_GATEWAY_2C2P_API_SECRET;
 const PAYMENT_GATEWAY_2C2P_API_MERCHANT_ID = process.env.PAYMENT_GATEWAY_2C2P_API_MERCHANT_ID;
+const PAYMENT_GATEWAY_2C2P_API_WEBHOOK_URL = process.env.PAYMENT_GATEWAY_2C2P_API_WEBHOOK_URL;
 
 export async function getCheckoutPaymentUrl(checkoutPayload) {
     checkoutPayload.merchantID = PAYMENT_GATEWAY_2C2P_API_MERCHANT_ID;
+    checkoutPayload.backendReturnUrl = PAYMENT_GATEWAY_2C2P_API_WEBHOOK_URL;
 
     try {
         const requestToken = jwt.sign(checkoutPayload, PAYMENT_GATEWAY_2C2P_API_SECRET)
