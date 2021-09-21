@@ -1,4 +1,4 @@
-import { getCheckoutPaymentUrl } from './2c2p-sdk.js';
+import { getCheckoutInfo } from './2c2p-sdk.js';
 
 async function run() {
     const checkoutPayload = {
@@ -14,8 +14,9 @@ async function run() {
     }
 
     try {
-        const checkoutPaymentUrl = await getCheckoutPaymentUrl(checkoutPayload);
-        console.log(checkoutPaymentUrl)
+        const { webPaymentUrl, paymentToken } = await getCheckoutInfo(checkoutPayload);
+        console.log('webPaymentUrl:', webPaymentUrl);
+        console.log('paymentToken:', paymentToken)
     }
     catch (err) {
         console.error(err);
