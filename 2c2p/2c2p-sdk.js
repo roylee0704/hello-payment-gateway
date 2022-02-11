@@ -65,3 +65,45 @@ async function getPaymentToken(requestToken) {
 
   return response.data.payload;
 }
+
+export async function paymentInquiry({
+  paymentToken,
+  invoiceNo,
+  locale = "en",
+}) {
+  const payload = {
+    paymentToken,
+    merchantID: PAYMENT_GATEWAY_2C2P_API_MERCHANT_ID,
+    invoiceNo,
+    locale,
+  };
+  const requestToken = jwt.sign(payload, PAYMENT_GATEWAY_2C2P_API_SECRET);
+
+  const response = await axios.post(
+    `${PAYMENT_GATEWAY_2C2P_API_URL}/paymentInquiry`,
+    {
+      payload: requestToken,
+    }
+  );
+
+  if (!response.data) {
+    throw new Error("getPaymentInquiry: No data returned from 2c2p");
+  }
+
+  if (response.data.respCode) {
+    throw new Error(
+      "getPaymentInquiry: " +
+        response.data.respCode +
+        ", " +
+        response.data.respDesc
+    );
+  }
+
+  if (!response.data.payload) {
+    throw new Error(
+      "getPaymentInquiry: No response payload returned from 2c2p"
+    );
+  }
+
+  return jwt.decode(response.data.payload, PAYMENT_GATEWAY_2C2P_API_SECRET);
+}
