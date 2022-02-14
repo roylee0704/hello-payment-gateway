@@ -1,12 +1,13 @@
 import { getCheckoutInfo } from "./2c2p-sdk.js";
 
 const INVOICE_NO = process.env.INVOICE_NO;
+const INVOICE_AMOUNT = process.env.INVOICE_AMOUNT || 10500;
 
 async function run() {
   const checkoutPayload = {
     invoiceNo: INVOICE_NO, // booking.reserve_number
     description: "Sinopharm + Moderna", // booking.order_vaccine_product_name
-    amount: 10500, // booking.order_total_price
+    amount: INVOICE_AMOUNT, // booking.order_total_price
     currencyCode: "THB",
     // 255 chars
     userDefined1: "446", // booking.id

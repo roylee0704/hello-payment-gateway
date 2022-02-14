@@ -8,10 +8,12 @@ ngrok:
 	ngrok http 3001
 
 # step 3. run client to generate web payment url
-start:
-	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy5 \
+checkout:
+	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy7 \
+	INVOICE_AMOUNT=10500 \
 	node ./client.js
 
 inquiry:
-	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy5 PAYMENT_TOKEN=kSAops9Zwhos8hSTSeLTUZMztYY+Hy0KBvtFOSI46iVYawd8M8pO2Mzj2LDJE3sOars7aPOMyqSQ7yGx2Spk8PV6h3tjphbI4LeYkZ9KwIpDVBhGEt0cnerTc9nqiTeI \
+	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy7 \
+	PAYMENT_TOKEN=kSAops9Zwhos8hSTSeLTUZMztYY+Hy0KBvtFOSI46iVYawd8M8pO2Mzj2LDJE3sOars7aPOMyqSQ7yGx2Spk8PV6h3tjphbI4LeYkZ9KwIpDVBhGEt0cnerTc9nqiTeI \
 	node ./inquiry.js

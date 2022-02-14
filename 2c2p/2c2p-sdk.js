@@ -5,6 +5,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const PAYMENT_GATEWAY_2C2P_API_URL = process.env.PAYMENT_GATEWAY_2C2P_API_URL;
+const PAYMENT_GATEWAY_2C2P_PAYMENT_ACTION_API_URL =
+  process.env.PAYMENT_GATEWAY_2C2P_PAYMENT_ACTION_API_URL;
+
 const PAYMENT_GATEWAY_2C2P_API_SECRET =
   process.env.PAYMENT_GATEWAY_2C2P_API_SECRET;
 const PAYMENT_GATEWAY_2C2P_API_MERCHANT_ID =
@@ -66,6 +69,7 @@ async function getPaymentToken(requestToken) {
   return response.data.payload;
 }
 
+// @doc https://developer.2c2p.com/docs/api-payment-inquiry
 export async function paymentInquiry({
   paymentToken,
   invoiceNo,
