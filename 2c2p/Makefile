@@ -17,3 +17,11 @@ inquiry:
 	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy7 \
 	PAYMENT_TOKEN=kSAops9Zwhos8hSTSeLTUZMztYY+Hy0KBvtFOSI46iVYawd8M8pO2Mzj2LDJE3sOars7aPOMyqSQ7yGx2Spk8PV6h3tjphbI4LeYkZ9KwIpDVBhGEt0cnerTc9nqiTeI \
 	node ./inquiry.js
+
+refund:
+	INVOICE_NO=PSUV-dBPMQWYFFLtoBZU6HBAcy7 \
+	ACTION_AMOUNT=500 \
+	node ./refund.js
+
+cert:
+	./certs/gen.sh
